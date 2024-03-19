@@ -25,6 +25,31 @@ public class Main {
         ///Sukurkite Funkciją kuri sugeneruotų random int skaičių masyvą ir jį gražintų.
         // Funkcija priima tris int tipo kintamuosius, min, max ir length reikšmėms nustatyti.
         arrayIntRandom(0,99,20);
+        System.out.println("======= 7 ========");
+        //Sukurkite Funkciją kuri panaudotų 6tos užduoties masyvą (priimtų kaip kintamąjį), susumuotų ir gražintų reikšmę.
+        int[] array1 = arrayIntRandom(0,99,20);
+        printArrayInLine(array1);
+        System.out.println();
+        System.out.println(sumOfArray(array1));
+        System.out.println("======= 8 ========");
+        //Sukurkite Funkciją kuri priimtų 6tos užduoties masyvą ir gražintų jos skaičių vidurkį (double).
+        System.out.println(avrArr(array1));
+    }
+
+    public static double avrArr (int[] array){
+        double sum = 0.00;
+        for (int i = 0; i < array.length; i++) {
+            sum = sum + array[i];
+        }
+        return  (sum / array.length);
+    }
+
+    public static int sumOfArray (int[] array){
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum = sum + array[i];
+        }
+        return sum;
     }
 
     public static int[] arrayIntRandom(int min, int max, int length) {
@@ -42,10 +67,12 @@ public class Main {
     }
 
     public static void printArrayInLine(int[] array) {
+        System.out.println();
         for (int i = 0; i < array.length; i++) {
             System.out.print(" " + array[i]);
 
         }
+        System.out.println();
     }
 
     public static int multiOfInt(int number1, int number2) {
