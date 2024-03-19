@@ -46,7 +46,52 @@ public class Main {
         //Sukurkite Funkciją kuri priimtų sakinį, jį užkoduotų ir grąžintų.
         // Kodavimas - sakinį apsukame iš kitos pusės. Pvz “Naglis” turi gautis “silgaN”.
         System.out.println(mirrorText("Šiandien labai graži diena"));
+        System.out.println("======= 1 sunk ========");
+        //Parašykite funkciją, kurios argumentas būtų tekstas, kuris būtų atspausdinamas konsolėje pridedant
+        // “---” pradžioje ir gale. PVZ (---labas---)
+        dashFrameText("labas");
+        System.out.println("======= 2 sunk ========");
+        //Sugeneruokite atsitiktinį stringą iš raidžių ir skaičių (10 simbolių).
+        // Atspausdinkite simbolius stulpeliu. Jei tai skaičius apgaubkite “ [ 7 ]”. Jei skaičiai eina keli iš eilės,
+        // apgaubkite juos kartu. [75].
+        String rndText = generateRndStr(10);
+        textNumInBrac("0as1af65ffh65849asdv22");
     }
+    public static void textNumInBrac (String text){
+        System.out.println();
+        for (int i = 0; i < text.length(); i++) {
+            if ( i == 0 && Character.isDigit(text.charAt(i)) == true){
+                System.out.print("[");
+            }
+            if (i == text.length() && Character.isDigit(text.charAt(i)) == true){
+                System.out.print("]");
+                System.out.println();
+            if (i > 0 && Character.isDigit(text.charAt(i)) == true && Character.isDigit(text.charAt(i + 1)) == false){
+                System.out.println();
+                System.out.print("[");
+            }
+            if ( i < text.length() && Character.isDigit(text.charAt(i)) == true && Character.isDigit(text.charAt(i + 1)) == false){
+                System.out.print("]");
+                System.out.println();
+            }
+
+            }
+            System.out.print(text.charAt(i));
+        }
+    }
+    public static String generateRndStr(int length) {
+        String symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345678901234567890";
+        String text = "";
+        for (int i = 0; i < length; i++) {
+            text += symbols.charAt((int) (Math.random()*symbols.length()));
+        }
+        return text;
+    }
+
+    public static void dashFrameText (String text){
+        System.out.println("---" + text + "---");
+    }
+
     public static String mirrorText (String text){
         String mirrorText = "";
         for (int i = (text.length() - 1); i >= 0; i--) {
