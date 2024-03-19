@@ -64,15 +64,19 @@ public class Main {
         if (Character.isDigit(text.charAt(0)) == true) {
             System.out.print("[");
             System.out.print(text.charAt(0));
+            if(Character.isDigit(text.charAt(1)) == false){
+                System.out.print("]");
+                System.out.println();
+            }
         } else if (Character.isDigit(text.charAt(1)) == true) {
             System.out.print(text.charAt(0));
             System.out.println();
             System.out.print("[");
-            if (Character.isDigit(text.charAt(1)) == false) {
+        }
+            if (Character.isDigit(text.charAt(0)) == false && Character.isDigit(text.charAt(1)) == false) {
                 System.out.print(text.charAt(0));
             }
-        }
-        for (int i = 0; i < (text.length() - 1); i++) {
+        for (int i = 1; i < (text.length() - 1); i++) {
             if (Character.isDigit(text.charAt(i)) == true) {
                 if (Character.isDigit(text.charAt(i + 1)) == true)
                     System.out.print(text.charAt(i));
@@ -86,6 +90,8 @@ public class Main {
                     System.out.print(text.charAt(i));
                     System.out.println();
                     System.out.print("[");
+                }if (Character.isDigit(text.charAt(i + 1)) == false){
+                    System.out.print(text.charAt(i));
                 }
             }
         }
