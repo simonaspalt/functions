@@ -37,7 +37,7 @@ public class Main {
         System.out.println("======= 9 ========");
         //Sukurkite Funkciją kuri priimtų du int skaičius ir atspausdintų stačiakampį užpildytą žvaigždutėmis.
         // Pirmas int - išoriniam ciklui, antras vidiniam
-        starRectangle(3,6);
+        starRectangle(3, 6);
         System.out.println("======= 10 ========");
         //Sukurkite Funkciją kuri priimtų sakinį kaip kintamąjį ir atspausdintų kiek jame yra raidžių(simbolių) ir tarpų.
         // Sakinys - “Šiandien labai graži diena”. (kodas turi veikti padavus bet kokį sakinį)
@@ -55,44 +55,62 @@ public class Main {
         // Atspausdinkite simbolius stulpeliu. Jei tai skaičius apgaubkite “ [ 7 ]”. Jei skaičiai eina keli iš eilės,
         // apgaubkite juos kartu. [75].
         String rndText = generateRndStr(10);
-        textNumInBrac("0as1af65ffh65849asdv22");
+        System.out.println(rndText);
+        textNumInBrac(rndText);
     }
-    public static void textNumInBrac (String text){
-        System.out.println();
-        for (int i = 0; i < text.length(); i++) {
-            if ( i == 0 && Character.isDigit(text.charAt(i)) == true){
-                System.out.print("[");
-            }
-            if (i == text.length() && Character.isDigit(text.charAt(i)) == true){
-                System.out.print("]");
-                System.out.println();
-            if (i > 0 && Character.isDigit(text.charAt(i)) == true && Character.isDigit(text.charAt(i + 1)) == false){
-                System.out.println();
-                System.out.print("[");
-            }
-            if ( i < text.length() && Character.isDigit(text.charAt(i)) == true && Character.isDigit(text.charAt(i + 1)) == false){
-                System.out.print("]");
-                System.out.println();
-            }
 
+    public static void textNumInBrac(String text) {
+        System.out.println();
+        if (Character.isDigit(text.charAt(0)) == true) {
+            System.out.print("[");
+            System.out.print(text.charAt(0));
+        } else if (Character.isDigit(text.charAt(1)) == true) {
+            System.out.print(text.charAt(0));
+            System.out.println();
+            System.out.print("[");
+            if (Character.isDigit(text.charAt(1)) == false) {
+                System.out.print(text.charAt(0));
             }
-            System.out.print(text.charAt(i));
+        }
+        for (int i = 0; i < (text.length() - 1); i++) {
+            if (Character.isDigit(text.charAt(i)) == true) {
+                if (Character.isDigit(text.charAt(i + 1)) == true)
+                    System.out.print(text.charAt(i));
+                if (Character.isDigit(text.charAt(i + 1)) == false) {
+                    System.out.print(text.charAt(i));
+                    System.out.print("]");
+                    System.out.println();
+                }
+            } else if (Character.isDigit(text.charAt(i)) == false) {
+                if (Character.isDigit(text.charAt(i + 1)) == true) {
+                    System.out.print(text.charAt(i));
+                    System.out.println();
+                    System.out.print("[");
+                }
+            }
+        }
+        if (Character.isDigit(text.charAt(text.length() - 1)) == true) {
+            System.out.print(text.charAt(text.length() - 1));
+            System.out.print("]");
+        } else {
+            System.out.print(text.charAt(text.length() - 1));
         }
     }
+
     public static String generateRndStr(int length) {
         String symbols = "ABCDEFGHIJKLMNOPQRSTUVWXYZ12345678901234567890";
         String text = "";
         for (int i = 0; i < length; i++) {
-            text += symbols.charAt((int) (Math.random()*symbols.length()));
+            text += symbols.charAt((int) (Math.random() * symbols.length()));
         }
         return text;
     }
 
-    public static void dashFrameText (String text){
+    public static void dashFrameText(String text) {
         System.out.println("---" + text + "---");
     }
 
-    public static String mirrorText (String text){
+    public static String mirrorText(String text) {
         String mirrorText = "";
         for (int i = (text.length() - 1); i >= 0; i--) {
             mirrorText = mirrorText + text.charAt(i);
@@ -101,7 +119,7 @@ public class Main {
     }
 
 
-    public static void textLength (String text){
+    public static void textLength(String text) {
         System.out.println("Text has " + text.length() + " characters");
     }
 
