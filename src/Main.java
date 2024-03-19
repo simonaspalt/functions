@@ -24,27 +24,62 @@ public class Main {
         System.out.println("======= 6 ========");
         ///Sukurkite Funkciją kuri sugeneruotų random int skaičių masyvą ir jį gražintų.
         // Funkcija priima tris int tipo kintamuosius, min, max ir length reikšmėms nustatyti.
-        arrayIntRandom(0,99,20);
+        arrayIntRandom(0, 99, 20);
         System.out.println("======= 7 ========");
         //Sukurkite Funkciją kuri panaudotų 6tos užduoties masyvą (priimtų kaip kintamąjį), susumuotų ir gražintų reikšmę.
-        int[] array1 = arrayIntRandom(0,99,20);
+        int[] array1 = arrayIntRandom(0, 99, 19);
         printArrayInLine(array1);
         System.out.println();
         System.out.println(sumOfArray(array1));
         System.out.println("======= 8 ========");
         //Sukurkite Funkciją kuri priimtų 6tos užduoties masyvą ir gražintų jos skaičių vidurkį (double).
         System.out.println(avrArr(array1));
+        System.out.println("======= 9 ========");
+        //Sukurkite Funkciją kuri priimtų du int skaičius ir atspausdintų stačiakampį užpildytą žvaigždutėmis.
+        // Pirmas int - išoriniam ciklui, antras vidiniam
+        starRectangle(3,6);
+        System.out.println("======= 10 ========");
+        //Sukurkite Funkciją kuri priimtų sakinį kaip kintamąjį ir atspausdintų kiek jame yra raidžių(simbolių) ir tarpų.
+        // Sakinys - “Šiandien labai graži diena”. (kodas turi veikti padavus bet kokį sakinį)
+        textLength("Šiandien labai graži diena");
+        System.out.println("======= 11 ========");
+        //Sukurkite Funkciją kuri priimtų sakinį, jį užkoduotų ir grąžintų.
+        // Kodavimas - sakinį apsukame iš kitos pusės. Pvz “Naglis” turi gautis “silgaN”.
+        System.out.println(mirrorText("Šiandien labai graži diena"));
+    }
+    public static String mirrorText (String text){
+        String mirrorText = "";
+        for (int i = (text.length() - 1); i >= 0; i--) {
+            mirrorText = mirrorText + text.charAt(i);
+        }
+        return mirrorText;
     }
 
-    public static double avrArr (int[] array){
-        double sum = 0.00;
+
+    public static void textLength (String text){
+        System.out.println("Text has " + text.length() + " characters");
+    }
+
+    public static void starRectangle(int line, int collum) {
+        System.out.println();
+        for (int i = 0; i < line; i++) {
+            for (int p = 0; p < collum; p++) {
+                System.out.print(" *");
+            }
+            System.out.println();
+        }
+
+    }
+
+    public static double avrArr(int[] array) {
+        double sum = 0;
         for (int i = 0; i < array.length; i++) {
             sum = sum + array[i];
         }
-        return  (sum / array.length);
+        return (sum / array.length);
     }
 
-    public static int sumOfArray (int[] array){
+    public static int sumOfArray(int[] array) {
         int sum = 0;
         for (int i = 0; i < array.length; i++) {
             sum = sum + array[i];
