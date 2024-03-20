@@ -153,15 +153,16 @@ public class Main {
         System.out.println(avgArr2d(matrix));
         System.out.println(avgPrimaryArr2d(matrix));
         while (avgPrimaryArr2d(matrix) < minAvg) {
-            System.out.println(avgPrimaryArr2d(matrix));
+            addThreeToMinOfArr2d(matrix);
             avgPrimaryArr2d(matrix);
-            addValToMinOfArr2d(matrix);
+            System.out.println(avgPrimaryArr2d(matrix));
         }
+
 
 
     }
 
-    public static void addValToMinOfArr2d(int[][] arr2d) {
+    public static void addThreeToMinOfArr2d(int[][] arr2d) {
         int length2d = arr2d.length;
         int index1 = 0;
         int index2 = 0;
@@ -273,9 +274,11 @@ public class Main {
         if (Character.isDigit(text.charAt(text.length() - 1)) == true) {
             System.out.print(text.charAt(text.length() - 1));
             System.out.print("]");
+            System.out.println();
         } else {
             System.out.print(text.charAt(text.length() - 1));
         }
+        System.out.println();
     }
 
     public static String generateRndStr(int length) {
