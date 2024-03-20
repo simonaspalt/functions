@@ -85,7 +85,7 @@ public class Main {
             highDiv = isNumPrimary(arrayA[arrLength - 1]);
         }
 
-        System.out.println("Highet number of diviions: " + highDiv);
+        System.out.println("Highest number of diviions: " + highDiv);
         int counter = 0;
         for (int i = highDiv; i >= 0; i--) {
             for (int p = 0; p < arrayA.length; p++) {
@@ -147,13 +147,43 @@ public class Main {
         // ir prie jo pridėkite 3. Vėl paskaičiuokite masyvo pirminių skaičių vidurkį ir jeigu mažesnis nei 70 viską kartokite.
         min = 1;
         max = 100;
-        int minavg = 70;
+        int minAvg = 70;
         int length = 10;
-        int[][] arr2d = arrInt2d(length, min, max, length);
-        System.out.println(avgArr2d(arr2d));
-        System.out.println(avgPrimaryArr2d(arr2d));
+        int[][] matrix = arrInt2d(length, min, max, length);
+        System.out.println(avgArr2d(matrix));
+        System.out.println(avgPrimaryArr2d(matrix));
+        while (avgPrimaryArr2d(matrix) < minAvg) {
+            System.out.println(avgPrimaryArr2d(matrix));
+            avgPrimaryArr2d(matrix);
+            addValToMinOfArr2d(matrix);
+        }
 
 
+    }
+
+    public static void addValToMinOfArr2d(int[][] arr2d) {
+        int length2d = arr2d.length;
+        int index1 = 0;
+        int index2 = 0;
+        int minNum = arr2d[0][0];
+        for (int i = 0; i < length2d; i++) {
+            for (int p = 0; p < (arr2d[i].length - 1); p++) {
+                if (p == (arr2d[i].length - 2)) {
+                    if (minNum > arr2d[i][p + 1]) {
+                        minNum = arr2d[i][p + 1];
+                        index1 = i;
+                        index2 = p + 1;
+                    } else if
+                    (minNum > arr2d[i][p]) {
+                        minNum = arr2d[i][p];
+                        index1 = i;
+                        index2 = p;
+                    }
+                }
+
+            }
+        }
+        arr2d[index1][index2] = (minNum + 3);
     }
 
     public static double avgPrimaryArr2d(int[][] arr2d) {
