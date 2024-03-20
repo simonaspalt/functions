@@ -68,22 +68,32 @@ public class Main {
         int[] arraySorted = new int[100];
         int highDiv = isNumPrimary(arrayA[0]);
         for (int i = 0; i < arrayA.length - 1; i++) {
-            if ( i == arrayA.length - 2){
-                if (isNumPrimary(arrayA[i]) < isNumPrimary(arrayA[i + 1])){
+            if (i == arrayA.length - 2) {
+                if (isNumPrimary(arrayA[i]) < isNumPrimary(arrayA[i + 1])) {
                     highDiv = isNumPrimary(arrayA[i + 1]);
                 }
-            }else {
-                if (isNumPrimary(arrayA[i]) < isNumPrimary(arrayA[i + 1])){
+            } else {
+                if (isNumPrimary(arrayA[i]) < isNumPrimary(arrayA[i + 1])) {
                     highDiv = isNumPrimary(arrayA[i + 1]);
                 }
             }
-        }if (isNumPrimary(arrayA[98]) < isNumPrimary(arrayA[99])){
-            highDiv = isNumPrimary(arrayA[99]);}
+        }
+        if (isNumPrimary(arrayA[98]) < isNumPrimary(arrayA[99])) {
+            highDiv = isNumPrimary(arrayA[99]);
+        }
 
-        System.out.println(highDiv);
-
-
-
+        System.out.println("Highet number of diviions: " + highDiv);
+        int counter = 0;
+        for (int i = highDiv; i >= 0; i--) {
+            for (int p = 0; p < arrayA.length; p++) {
+                if (i == isNumPrimary(arrayA[p])) {
+                    arraySorted[counter] = arrayA[p];
+                    counter++;
+                }
+            }
+        }
+        printArrayInLine(arrayA);
+        printArrayInLine(arraySorted);
 
     }
 
