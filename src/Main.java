@@ -77,8 +77,8 @@ public class Main {
                     highDiv = isNumPrimary(arrayA[i + 1]);
                 }
             }
-        }if (isNumPrimary(arrayA[i]) < isNumPrimary(arrayA[i + 1])){
-            highDiv = isNumPrimary(arrayA[i + 1]);
+        }if (isNumPrimary(arrayA[98]) < isNumPrimary(arrayA[99])){
+            highDiv = isNumPrimary(arrayA[99]);}
 
         System.out.println(highDiv);
 
