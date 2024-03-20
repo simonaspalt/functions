@@ -64,22 +64,25 @@ public class Main {
         System.out.println("======= 4 sunk ========");
         //Sugeneruokite masyvą iš 100 elementų, kurio reikšmės atsitiktiniai skaičiai nuo 33 iki 77.
         // Išrūšiuokite masyvą pagal daliklių be liekanos kiekį mažėjimo tvarka, panaudodami trečio uždavinio funkciją.
-        int[] arrayA = arrayIntRandom(33, 77, 100);
-        int[] arraySorted = new int[100];
+        int min = 33;
+        int max = 77;
+        int arrLength = 100;
+        int[] arrayA = arrayIntRandom(min, max, arrLength);
+        int[] arraySorted = new int[arrLength];
         int highDiv = isNumPrimary(arrayA[0]);
         for (int i = 0; i < arrayA.length - 1; i++) {
             if (i == arrayA.length - 2) {
-                if (isNumPrimary(arrayA[i]) < isNumPrimary(arrayA[i + 1])) {
+                if (highDiv < isNumPrimary(arrayA[i + 1])) {
                     highDiv = isNumPrimary(arrayA[i + 1]);
                 }
             } else {
-                if (isNumPrimary(arrayA[i]) < isNumPrimary(arrayA[i + 1])) {
+                if (highDiv < isNumPrimary(arrayA[i + 1])) {
                     highDiv = isNumPrimary(arrayA[i + 1]);
                 }
             }
         }
-        if (isNumPrimary(arrayA[98]) < isNumPrimary(arrayA[99])) {
-            highDiv = isNumPrimary(arrayA[99]);
+        if (isNumPrimary(arrayA[arrLength - 2]) < isNumPrimary(arrayA[arrLength - 1])) {
+            highDiv = isNumPrimary(arrayA[arrLength - 1]);
         }
 
         System.out.println("Highet number of diviions: " + highDiv);
@@ -92,6 +95,7 @@ public class Main {
                 }
             }
         }
+
         printArrayInLine(arrayA);
         printArrayInLine(arraySorted);
 
