@@ -81,7 +81,7 @@ public class Main {
                 }
             }
         }
-        if (isNumPrimary(arrayA[arrLength - 2]) < isNumPrimary(arrayA[arrLength - 1])) {
+        if (highDiv < isNumPrimary(arrayA[arrLength - 1])) {
             highDiv = isNumPrimary(arrayA[arrLength - 1]);
         }
 
@@ -98,6 +98,38 @@ public class Main {
 
         printArrayInLine(arrayA);
         printArrayInLine(arraySorted);
+
+        System.out.println("======= 5 sunk ========");
+        //Sugeneruokite masyvą iš 100 elementų, kurio reikšmės atsitiktiniai skaičiai nuo 333 iki 777.
+        // Naudodami 3 uždavinio funkciją iš masyvo suskaičiuokite kiek yra pirminių skaičių.
+        min = 333;
+        max = 777;
+        arrLength = 100;
+        int[] arrRnd = arrayIntRandom(min,max,arrLength);
+        counter = 0;
+        for (int i = 0; i < arrLength; i++) {
+            if (isNumPrimary(arrRnd[i]) == 0){
+                counter++;
+            }
+        }
+        printArrayInLine(arrRnd);
+        System.out.println("There are " + counter + " primary numbers");
+
+        System.out.println("======= 8 sunk ========");
+//Sugeneruokite masyvą iš trijų elementų, kurie yra atsitiktiniai skaičiai nuo 1 iki 33.
+// Jeigu tarp trijų paskutinių elementų yra nors vienas ne pirminis skaičius,
+// prie masyvo pridėkite dar vieną elementą- atsitiktinį skaičių nuo 1 iki 33.
+// Vėl patikrinkite pradinę sąlygą ir jeigu reikia pridėkite dar vieną elementą.
+// Kartokite, kol sąlyga nereikalaus pridėti elemento.
+
+        min = 1;
+        max = 33;
+        arrLength = 3;
+        int[] arrStart = arrayIntRandom(min,max,arrLength);
+        printArrayInLine(arrStart);
+
+
+
 
     }
 
