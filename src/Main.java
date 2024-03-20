@@ -64,12 +64,33 @@ public class Main {
         System.out.println("======= 4 sunk ========");
         //Sugeneruokite masyvą iš 100 elementų, kurio reikšmės atsitiktiniai skaičiai nuo 33 iki 77.
         // Išrūšiuokite masyvą pagal daliklių be liekanos kiekį mažėjimo tvarka, panaudodami trečio uždavinio funkciją.
-        int[] array5 = arrayIntRandom(33,77,100);
+        int[] arrayA = arrayIntRandom(33, 77, 100);
+        int[] arraySorted = new int[100];
+        int highDiv = isNumPrimary(arrayA[0]);
+        for (int i = 0; i < arrayA.length - 1; i++) {
+            if ( i == arrayA.length - 2){
+                if (isNumPrimary(arrayA[i]) < isNumPrimary(arrayA[i + 1])){
+                    highDiv = isNumPrimary(arrayA[i + 1]);
+                }
+            }else {
+                if (isNumPrimary(arrayA[i]) < isNumPrimary(arrayA[i + 1])){
+                    highDiv = isNumPrimary(arrayA[i + 1]);
+                }
+            }
+        }if (isNumPrimary(arrayA[i]) < isNumPrimary(arrayA[i + 1])){
+            highDiv = isNumPrimary(arrayA[i + 1]);
 
-    public static int isNumPrimary (int number){
+        System.out.println(highDiv);
+
+
+
+
+    }
+
+    public static int isNumPrimary(int number) {
         int counter = 0;
         for (int i = 2; i < number; i++) {
-            if ( number % i == 0 ){
+            if (number % i == 0) {
                 counter++;
             }
         }
@@ -82,7 +103,7 @@ public class Main {
         if (Character.isDigit(text.charAt(0)) == true) {
             System.out.print("[");
             System.out.print(text.charAt(0));
-            if(Character.isDigit(text.charAt(1)) == false){
+            if (Character.isDigit(text.charAt(1)) == false) {
                 System.out.print("]");
                 System.out.println();
             }
@@ -91,9 +112,9 @@ public class Main {
             System.out.println();
             System.out.print("[");
         }
-            if (Character.isDigit(text.charAt(0)) == false && Character.isDigit(text.charAt(1)) == false) {
-                System.out.print(text.charAt(0));
-            }
+        if (Character.isDigit(text.charAt(0)) == false && Character.isDigit(text.charAt(1)) == false) {
+            System.out.print(text.charAt(0));
+        }
         for (int i = 1; i < (text.length() - 1); i++) {
             if (Character.isDigit(text.charAt(i)) == true) {
                 if (Character.isDigit(text.charAt(i + 1)) == true)
@@ -108,7 +129,8 @@ public class Main {
                     System.out.print(text.charAt(i));
                     System.out.println();
                     System.out.print("[");
-                }if (Character.isDigit(text.charAt(i + 1)) == false){
+                }
+                if (Character.isDigit(text.charAt(i + 1)) == false) {
                     System.out.print(text.charAt(i));
                 }
             }
