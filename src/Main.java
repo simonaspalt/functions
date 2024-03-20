@@ -57,6 +57,24 @@ public class Main {
         String rndText = generateRndStr(10);
         System.out.println(rndText);
         textNumInBrac(rndText);
+        System.out.println("======= 3 sunk ========");
+        //Parašykite funkciją, kuri skaičiuotų, ir gražintų iš kiek sveikų skaičių
+        // jos argumentas dalijasi be liekanos (išskyrus vienetą ir patį save).
+        System.out.println(isNumPrimary(53));
+        System.out.println("======= 4 sunk ========");
+        //Sugeneruokite masyvą iš 100 elementų, kurio reikšmės atsitiktiniai skaičiai nuo 33 iki 77.
+        // Išrūšiuokite masyvą pagal daliklių be liekanos kiekį mažėjimo tvarka, panaudodami trečio uždavinio funkciją.
+        int[] array5 = arrayIntRandom(33,77,100);
+
+    public static int isNumPrimary (int number){
+        int counter = 0;
+        for (int i = 2; i < number; i++) {
+            if ( number % i == 0 ){
+                counter++;
+            }
+        }
+        return counter;
+        // if num is primary function returns 0, if not then > 0
     }
 
     public static void textNumInBrac(String text) {
