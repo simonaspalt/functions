@@ -137,16 +137,59 @@ public class Main {
             arrLonger[arrLonger.length - 1] = randomIntNumber(min, max);
             printArrayInLine(arrLonger);
             arrStart = arrLonger;
-            if (isNumPrimary(arrStart[arrStart.length - 3]) == 0
-                    && isNumPrimary(arrStart[arrStart.length - 2]) == 0
-                    && isNumPrimary(arrStart[arrStart.length - 1]) == 0) {
-                break;
+        }
+
+
+        System.out.println("======= 9 sunk ========");
+        //Sugeneruokite masyvą iš 10 elementų, kurie yra masyvai iš 10 elementų,
+        // kurie yra atsitiktiniai skaičiai nuo 1 iki 100. Jeigu tokio didelio masyvo (ne atskirai mažesnių)
+        // pirminių skaičių vidurkis mažesnis už 70, suraskite masyve mažiausią skaičių (nebūtinai pirminį)
+        // ir prie jo pridėkite 3. Vėl paskaičiuokite masyvo pirminių skaičių vidurkį ir jeigu mažesnis nei 70 viską kartokite.
+        min = 1;
+        max = 100;
+        int minavg = 70;
+        int length = 10;
+        int[][] arr2d = arrInt2d(length, min, max, length);
+        System.out.println(avgArr2d(arr2d));
+        System.out.println(avgPrimaryArr2d(arr2d));
+
+
+    }
+
+    public static double avgPrimaryArr2d(int[][] arr2d) {
+        double sum = 0.0;
+        int length = arr2d.length;
+        double counter = 0.0;
+        for (int i = 0; i < length; i++) {
+            for (int p = 0; p < arr2d[i].length; p++) {
+                if (isNumPrimary(arr2d[i][p]) == 0) {
+                    sum += arr2d[i][p];
+                    counter++;
+                }
             }
         }
-        printArrayInLine(arrStart);
+        return sum / counter;
+    }
 
+    public static double avgArr2d(int[][] arr2d) {
+        double sum = 0.0;
+        int length = arr2d.length;
+        double counter = 0.0;
+        for (int i = 0; i < length; i++) {
+            for (int p = 0; p < arr2d[i].length; p++) {
+                sum += arr2d[i][p];
+                counter++;
+            }
+        }
+        return sum / counter;
+    }
 
-
+    public static int[][] arrInt2d(int length2d, int min, int max, int length) {
+        int[][] arr2d = new int[length2d][length];
+        for (int i = 0; i < length2d; i++) {
+            arr2d[i] = arrayIntRandom(min, max, length);
+        }
+        return arr2d;
     }
 
     public static int isNumPrimary(int number) {
