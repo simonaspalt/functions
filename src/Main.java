@@ -105,10 +105,10 @@ public class Main {
         min = 333;
         max = 777;
         arrLength = 100;
-        int[] arrRnd = arrayIntRandom(min,max,arrLength);
+        int[] arrRnd = arrayIntRandom(min, max, arrLength);
         counter = 0;
         for (int i = 0; i < arrLength; i++) {
-            if (isNumPrimary(arrRnd[i]) == 0){
+            if (isNumPrimary(arrRnd[i]) == 0) {
                 counter++;
             }
         }
@@ -125,9 +125,25 @@ public class Main {
         min = 1;
         max = 33;
         arrLength = 3;
-        int[] arrStart = arrayIntRandom(min,max,arrLength);
+        int[] arrStart = arrayIntRandom(min, max, arrLength);
         printArrayInLine(arrStart);
-
+        while (isNumPrimary(arrStart[arrStart.length - 3]) != 0
+                || isNumPrimary(arrStart[arrStart.length - 2]) != 0
+                || isNumPrimary(arrStart[arrStart.length - 1]) != 0) {
+            int[] arrLonger = new int[arrStart.length + 1];
+            for (int i = 0; i < arrStart.length; i++) {
+                arrLonger[i] = arrStart[i];
+            }
+            arrLonger[arrLonger.length - 1] = randomIntNumber(min, max);
+            printArrayInLine(arrLonger);
+            arrStart = arrLonger;
+            if (isNumPrimary(arrStart[arrStart.length - 3]) == 0
+                    && isNumPrimary(arrStart[arrStart.length - 2]) == 0
+                    && isNumPrimary(arrStart[arrStart.length - 1]) == 0) {
+                break;
+            }
+        }
+        printArrayInLine(arrStart);
 
 
 
